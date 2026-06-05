@@ -1,0 +1,8 @@
+{
+  "name": "slashbrag",
+  "private": true,
+  "description": "A directory of /brag docs — share your brag document with the world",
+  "scripts": {
+    "build": "node scripts/build.js"
+  }
+}

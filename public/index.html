@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>/brag — a directory of brag documents</title>
+  <meta name="description" content="A directory of /brag docs — share your brag document with the world." />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
+</head>
+<body>
+  <header>
+    <h1>/brag</h1>
+    <p class="subtitle">A directory of brag documents</p>
+    <p class="intro">
+      A <a href="https://bragdocs.com" target="_blank" rel="noopener">/brag</a> document is your living resume —
+      accomplishments, projects, and things you're proud of. This is a community directory
+      of brag docs from people around the world.
+    </p>
+  </header>
+
+  <main>
+    <div id="entries" class="entries">
+      <p class="loading">Loading…</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      Want to add yours?
+      <a href="https://github.com/alexgaudon/slashbrag">Submit a PR →</a>
+    </p>
+  </footer>
+
+  <template id="entry-template">
+    <a class="entry-card" href="">
+      <div class="entry-header">
+        <h2 class="entry-name"></h2>
+        <span class="entry-location"></span>
+      </div>
+      <p class="entry-desc"></p>
+      <span class="entry-link">View /brag →</span>
+    </a>
+  </template>
+
+  <script>
+    fetch("/data.json")
+      .then(r => r.json())
+      .then(entries => {
+        const container = document.getElementById("entries");
+        container.innerHTML = "";
+
+        if (entries.length === 0) {
+          container.innerHTML = '<p class="empty">No entries yet — be the first!</p>';
+          return;
+        }
+
+        const tmpl = document.getElementById("entry-template");
+
+        for (const entry of entries) {
+          const card = tmpl.content.cloneNode(true);
+          card.querySelector(".entry-card").href = entry.link;
+          card.querySelector(".entry-name").textContent = entry.name;
+          card.querySelector(".entry-location").textContent = entry.location || "";
+          card.querySelector(".entry-desc").textContent = entry.description || "";
+          container.appendChild(card);
+        }
+      })
+      .catch(() => {
+        document.getElementById("entries").innerHTML =
+          '<p class="error">Couldn\'t load entries. Try again soon.</p>';
+      });
+  </script>
+</body>
+</html>
