@@ -27,7 +27,7 @@ That's it. The site rebuilds automatically when your PR is merged. Your name is 
 | `link` | ✅ | URL to your /brag document |
 | `location` | | Where you're based |
 | `description` | | One-liner about you or your work |
-| `image-url` | | Avatar image shown next to your entry |
+| `image-url` | | Avatar image shown next to your entry (optional) |
 
 ## Tech
 
