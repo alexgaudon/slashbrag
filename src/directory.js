@@ -1,11 +1,10 @@
 // ── directory.js — Entries list + search (no map) ────────────
-(async function () {
+(function () {
 
 // ── fetch data ──────────────────────────────────────────────
 var entries;
 try {
-  var res = await fetch("/data.json");
-  entries = await res.json();
+  entries = JSON.parse(document.getElementById("__data__").textContent);
 } catch (e) {
   document.getElementById("groups").innerHTML =
     '<p class="text-center text-gray-400 py-16">Couldn\'t load entries.</p>';

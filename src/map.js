@@ -7,8 +7,7 @@ if (!mapEl) return;
 // ── fetch data ──────────────────────────────────────────────
 var entries;
 try {
-  var res = await fetch("/data.json");
-  entries = await res.json();
+  entries = JSON.parse(document.getElementById("__data__").textContent);
 } catch (e) {
   return;
 }
