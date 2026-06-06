@@ -262,5 +262,9 @@
   "Reykjavik, Iceland": {
     "lat": 64.145981,
     "lng": -21.9422367
+  },
+  "Cupertino, California, USA": {
+    "lat": 37.3228934,
+    "lng": -122.0322895
   }
 }
