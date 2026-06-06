@@ -9,14 +9,14 @@
     "dev": "astro dev",
     "build": "node scripts/build-data.cjs && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "generate-types": "wrangler types"
+    "deploy": "wrangler pages deploy dist --project-name=slashbrag"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.6.1",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.4",
-    "tailwindcss": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
     "wrangler": "^4.98.0"
   },
   "overrides": {
