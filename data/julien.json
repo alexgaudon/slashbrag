@@ -2,5 +2,7 @@
   "location": "Paris, France",
   "link": "https://julientech.fr",
   "description": "Machine learning engineer building recommendation systems and predictive analytics solutions.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 48.8534951,
+  "lng": 2.3483915
 }

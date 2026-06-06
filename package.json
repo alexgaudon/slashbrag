@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "node scripts/build-data.cjs && astro build",
     "preview": "astro preview",
+    "enrich": "node scripts/enrich-data.cjs",
     "deploy": "wrangler pages deploy dist --project-name=slashbrag"
   },
   "dependencies": {

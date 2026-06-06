@@ -3,7 +3,6 @@ const fs = require("fs");
 const path = require("path");
 
 const dataDir = path.join(__dirname, "..", "data");
-const cacheFile = path.join(__dirname, "..", "src", "data", "geocode-cache.json");
 const outDir = path.join(__dirname, "..", "public");
 const outFile = path.join(outDir, "data.json");
 
@@ -16,12 +15,6 @@ function filenameToName(filename) {
     .join(" ");
 }
 
-// Load cache
-let cache = {};
-if (fs.existsSync(cacheFile)) {
-  cache = JSON.parse(fs.readFileSync(cacheFile, "utf-8"));
-}
-
 // Load entries
 const entries = [];
 if (fs.existsSync(dataDir)) {
@@ -30,13 +23,8 @@ if (fs.existsSync(dataDir)) {
     const raw = fs.readFileSync(path.join(dataDir, file), "utf-8");
     try {
       const e = JSON.parse(raw);
-      // Name comes from filename; JSON can override with a "name" field
       if (!e.name) e.name = filenameToName(file);
       if (e.name && e.link) {
-        if (e.location && cache[e.location]) {
-          e.lat = cache[e.location].lat;
-          e.lng = cache[e.location].lng;
-        }
         entries.push(e);
       }
     } catch (err) {
@@ -44,6 +32,7 @@ if (fs.existsSync(dataDir)) {
     }
   }
 }
+
 entries.sort((a, b) => a.name.localeCompare(b.name));
 
 fs.mkdirSync(outDir, { recursive: true });

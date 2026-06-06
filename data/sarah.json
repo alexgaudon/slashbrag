@@ -2,5 +2,7 @@
   "location": "Calgary, Canada",
   "link": "https://sarahbuilds.com",
   "description": "Mechanical engineer turned maker. Shares 3D printing projects and practical engineering experiments.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 51.0456064,
+  "lng": -114.057541
 }

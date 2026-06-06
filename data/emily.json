@@ -2,5 +2,7 @@
   "location": "Portland, USA",
   "link": "https://emilywrites.blog",
   "description": "Technical writer translating complex software concepts into practical guides and tutorials.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": 45.5202471,
+  "lng": -122.674194
 }

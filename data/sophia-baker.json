@@ -2,5 +2,7 @@
   "location": "Atlanta, USA",
   "link": "https://sophiabaker.dev",
   "description": "Frontend specialist creating responsive interfaces and design systems for large-scale applications.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 33.7544657,
+  "lng": -84.3898151
 }

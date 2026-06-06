@@ -2,5 +2,7 @@
   "location": "Vancouver, Canada",
   "link": "https://michaelchen.ca",
   "description": "Software engineer specializing in distributed systems and backend architecture. Loves hiking and photography.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": 49.2608724,
+  "lng": -123.113952
 }

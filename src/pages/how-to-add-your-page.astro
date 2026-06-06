@@ -50,12 +50,12 @@ import '../styles/global.css';
       </p>
       <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-200/60">
         <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">data/your-name.json</p>
-        <pre class="text-sm text-gray-800 font-mono leading-relaxed">{`{
+        <pre class="text-sm text-gray-800 font-mono leading-relaxed" set:html={`{
   "location": "City, Country",
   "link": "https://yoursite.com/brag",
-  "description": "A short sentence about you and what you do."`}<span class="text-gray-400">{`
-  "image-url": "https://example.com/avatar.jpg"<span class="select-none text-gray-400">  // optional</span>`}</span>{`
-}`}</pre>
+  "description": "A short sentence about you and what you do.",
+  "image-url": "https://example.com/avatar.jpg"  // optional
+}`}></pre>
       </div>
     </section>
 

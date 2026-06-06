@@ -2,5 +2,7 @@
   "location": "Sydney, Australia",
   "link": "https://jackwilson.au",
   "description": "Software developer building web applications and documenting lessons learned from startup life.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": -33.8698439,
+  "lng": 151.2082848
 }

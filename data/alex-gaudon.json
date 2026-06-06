@@ -3,5 +3,7 @@
   "location": "St. John's, Newfoundland",
   "link": "https://alexgaudon.com/brag",
   "description": "Developer & outdoor enthusiast. Builds tools, hikes trails, and runs community stuff.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": 47.5646794,
+  "lng": -52.7066964
 }

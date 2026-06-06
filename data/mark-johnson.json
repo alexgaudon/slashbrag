@@ -2,5 +2,7 @@
   "location": "Chicago, USA",
   "link": "https://markjohnson.io",
   "description": "Data engineer building analytics platforms and data pipelines for enterprise organizations.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 41.8755616,
+  "lng": -87.6244212
 }

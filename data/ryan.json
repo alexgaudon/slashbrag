@@ -2,5 +2,7 @@
   "location": "Seattle, USA",
   "link": "https://ryanbuilds.dev",
   "description": "Backend engineer focused on APIs, databases, and scalable systems. Loves sailing and woodworking.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": 47.6038321,
+  "lng": -122.330062
 }

@@ -2,5 +2,7 @@
   "location": "Copenhagen, Denmark",
   "link": "https://frederiktech.dk",
   "description": "Backend developer focused on APIs, performance optimization, and cloud-native systems.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 55.6867243,
+  "lng": 12.5700724
 }

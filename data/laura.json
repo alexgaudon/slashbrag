@@ -2,5 +2,7 @@
   "location": "Denver, USA",
   "link": "https://lauramountain.com",
   "description": "Outdoor photographer documenting trails, wildlife, and landscapes across North America.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": 39.7392364,
+  "lng": -104.984862
 }

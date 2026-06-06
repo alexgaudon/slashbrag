@@ -2,5 +2,7 @@
   "location": "Rio de Janeiro, Brazil",
   "link": "https://marinatravels.com.br",
   "description": "Travel writer sharing destination guides and cultural experiences from around the world.",
-  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s"
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": -22.9110137,
+  "lng": -43.2093727
 }

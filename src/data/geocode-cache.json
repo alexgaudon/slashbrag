@@ -62,5 +62,205 @@
   "Sydney, Australia": {
     "lat": -33.8698439,
     "lng": 151.2082848
+  },
+  "Singapore, Singapore": {
+    "lat": 1.2899175,
+    "lng": 103.8519072
+  },
+  "Helsinki, Finland": {
+    "lat": 60.1666204,
+    "lng": 24.9435408
+  },
+  "St. John's, Canada": {
+    "lat": 47.5646794,
+    "lng": -52.7066964
+  },
+  "Halifax, Canada": {
+    "lat": 44.648618,
+    "lng": -63.5859487
+  },
+  "New York, USA": {
+    "lat": 40.7127281,
+    "lng": -74.0060152
+  },
+  "Bristol, United Kingdom": {
+    "lat": 51.4538022,
+    "lng": -2.5972985
+  },
+  "Lyon, France": {
+    "lat": 45.7578137,
+    "lng": 4.8320114
+  },
+  "Madrid, Spain": {
+    "lat": 40.416782,
+    "lng": -3.703507
+  },
+  "Melbourne, Australia": {
+    "lat": -37.8142454,
+    "lng": 144.9631732
+  },
+  "Ottawa, Canada": {
+    "lat": 45.4208777,
+    "lng": -75.6901106
+  },
+  "Mexico City, Mexico": {
+    "lat": 19.3207722,
+    "lng": -99.1514678
+  },
+  "Barcelona, Spain": {
+    "lat": 41.3825802,
+    "lng": 2.177073
+  },
+  "Manchester, United Kingdom": {
+    "lat": 53.4424618,
+    "lng": -2.2324547
+  },
+  "Portland, USA": {
+    "lat": 45.5202471,
+    "lng": -122.674194
+  },
+  "Edmonton, Canada": {
+    "lat": 53.5462055,
+    "lng": -113.491241
+  },
+  "Brisbane, Australia": {
+    "lat": -27.4689623,
+    "lng": 153.0235009
+  },
+  "Rotterdam, Netherlands": {
+    "lat": 51.9244424,
+    "lng": 4.47775
+  },
+  "Copenhagen, Denmark": {
+    "lat": 55.6867243,
+    "lng": 12.5700724
+  },
+  "Milan, Italy": {
+    "lat": 45.4641943,
+    "lng": 9.1896346
+  },
+  "Munich, Germany": {
+    "lat": 48.1371079,
+    "lng": 11.5753822
+  },
+  "Oslo, Norway": {
+    "lat": 59.9133301,
+    "lng": 10.7389701
+  },
+  "Austin, USA": {
+    "lat": 30.2711286,
+    "lng": -97.7436995
+  },
+  "Victoria, Canada": {
+    "lat": 48.4283182,
+    "lng": -123.364953
+  },
+  "Winnipeg, Canada": {
+    "lat": 49.8955367,
+    "lng": -97.1384584
+  },
+  "Boston, USA": {
+    "lat": 42.3588336,
+    "lng": -71.0578303
+  },
+  "Denver, USA": {
+    "lat": 39.7392364,
+    "lng": -104.984862
+  },
+  "Cape Town, South Africa": {
+    "lat": -33.9288301,
+    "lng": 18.4172197
+  },
+  "Vienna, Austria": {
+    "lat": 48.2083537,
+    "lng": 16.3725042
+  },
+  "Montreal, Canada": {
+    "lat": 45.5031824,
+    "lng": -73.5698065
+  },
+  "Rome, Italy": {
+    "lat": 41.8933203,
+    "lng": 12.4829321
+  },
+  "Rio de Janeiro, Brazil": {
+    "lat": -22.9110137,
+    "lng": -43.2093727
+  },
+  "Chicago, USA": {
+    "lat": 41.8755616,
+    "lng": -87.6244212
+  },
+  "Prague, Czech Republic": {
+    "lat": 50.0874654,
+    "lng": 14.4212535
+  },
+  "Vancouver, Canada": {
+    "lat": 49.2608724,
+    "lng": -123.113952
+  },
+  "Dublin, Ireland": {
+    "lat": 53.3493795,
+    "lng": -6.2605593
+  },
+  "Zurich, Switzerland": {
+    "lat": 47.3744489,
+    "lng": 8.5410422
+  },
+  "Auckland, New Zealand": {
+    "lat": -36.852095,
+    "lng": 174.7631803
+  },
+  "San Francisco, USA": {
+    "lat": 37.7879363,
+    "lng": -122.4075201
+  },
+  "Warsaw, Poland": {
+    "lat": 52.2333742,
+    "lng": 21.0711489
+  },
+  "Mumbai, India": {
+    "lat": 19.054999,
+    "lng": 72.8692035
+  },
+  "Seattle, USA": {
+    "lat": 47.6038321,
+    "lng": -122.330062
+  },
+  "Calgary, Canada": {
+    "lat": 51.0456064,
+    "lng": -114.057541
+  },
+  "Hong Kong, China": {
+    "lat": 22.2818333,
+    "lng": 114.1582831
+  },
+  "Buenos Aires, Argentina": {
+    "lat": -34.6095579,
+    "lng": -58.3887904
+  },
+  "Atlanta, USA": {
+    "lat": 33.7544657,
+    "lng": -84.3898151
+  },
+  "London, United Kingdom": {
+    "lat": 51.5074456,
+    "lng": -0.1277653
+  },
+  "Amsterdam, Netherlands": {
+    "lat": 52.3730796,
+    "lng": 4.8924534
+  },
+  "Miami, USA": {
+    "lat": 25.7741566,
+    "lng": -80.1935973
+  },
+  "Osaka, Japan": {
+    "lat": 34.6937569,
+    "lng": 135.5014539
+  },
+  "Reykjavik, Iceland": {
+    "lat": 64.145981,
+    "lng": -21.9422367
   }
 }
