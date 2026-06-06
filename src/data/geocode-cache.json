@@ -1,0 +1,66 @@
+{
+  "St. John's, Newfoundland": {
+    "lat": 47.5646794,
+    "lng": -52.7066964
+  },
+  "Nairobi, Kenya": {
+    "lat": -1.2890006,
+    "lng": 36.8172812
+  },
+  "Paris, France": {
+    "lat": 48.8534951,
+    "lng": 2.3483915
+  },
+  "Tallinn, Estonia": {
+    "lat": 59.437242,
+    "lng": 24.7572693
+  },
+  "Seoul, South Korea": {
+    "lat": 37.5666791,
+    "lng": 126.9782914
+  },
+  "São Paulo, Brazil": {
+    "lat": -23.5506507,
+    "lng": -46.6333824
+  },
+  "Lagos, Nigeria": {
+    "lat": 6.4550575,
+    "lng": 3.3941795
+  },
+  "Berlin, Germany": {
+    "lat": 52.5173885,
+    "lng": 13.3951309
+  },
+  "San Francisco, CA": {
+    "lat": 37.7879363,
+    "lng": -122.4075201
+  },
+  "London, UK": {
+    "lat": 51.5074456,
+    "lng": -0.1277653
+  },
+  "Dubai, UAE": {
+    "lat": 25.0742823,
+    "lng": 55.1885387
+  },
+  "Toronto, Canada": {
+    "lat": 43.6534817,
+    "lng": -79.3839347
+  },
+  "Bangalore, India": {
+    "lat": 12.9767936,
+    "lng": 77.590082
+  },
+  "Stockholm, Sweden": {
+    "lat": 59.3251172,
+    "lng": 18.0710935
+  },
+  "Tokyo, Japan": {
+    "lat": 35.6768601,
+    "lng": 139.7638947
+  },
+  "Sydney, Australia": {
+    "lat": -33.8698439,
+    "lng": 151.2082848
+  }
+}

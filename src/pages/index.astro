@@ -1,0 +1,99 @@
+---
+import mapJs from '../map.js?raw';
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>/brag — a directory of brag documents</title>
+  <meta name="description" content="A directory of /brag docs. Celebrate your wins, big and small." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
+  <link rel="stylesheet" href="/leaflet.css" />
+</head>
+<body class="antialiased">
+
+  <!-- ═══════════════ MAP UNDERLAY ═══════════════ -->
+  <div id="map" class="fixed inset-0 z-0 bg-gray-100"></div>
+
+  <!-- ═══════════════ CONTENT OVERLAY ═══════════════ -->
+  <div class="relative z-10">
+
+    <!-- INTRO -->
+    <header class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 pb-10 sm:pb-12">
+      <!-- Logo box -->
+      <div class="text-center mb-8">
+        <div class="inline-block bg-[#1E293B] rounded-3xl px-8 sm:px-12 py-6 sm:py-8 shadow-xl overflow-visible">
+          <div class="inline-flex items-center relative" style="font-family:Arial,Helvetica,sans-serif;font-weight:900;">
+            <div class="absolute left-[12px] sm:left-[14px] -top-[6px] sm:-top-[10px] w-[38px] sm:w-[46px] h-[110px] sm:h-[130px] z-0"
+                 style="background:#FED911;transform:skewX(-24deg);"></div>
+            <span class="relative z-[1] text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]">b</span>
+            <span class="text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]">rag</span>
+          </div>
+          <p class="mt-3 text-base font-medium text-[#F8FAFC]/80">A directory of brag documents</p>
+        </div>
+      </div>
+
+      <!-- Hero message (on a subtle card for map readability) -->
+      <div class="max-w-xl mx-auto bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-sm text-center">
+        <p class="text-lg sm:text-xl text-gray-800 leading-relaxed font-medium">
+          Nobody talks about their wins enough. A <strong>/brag</strong> page is where you do exactly that.
+        </p>
+        <p class="mt-3 text-sm text-gray-500 leading-relaxed">
+          Just a running list of stuff you're proud of. Projects, talks, bugs you killed,
+          promotions, marathons — whatever counts. No rules, no format. Add to it whenever.
+        </p>
+        <!-- Stats -->
+        <div class="mt-5 flex gap-6 justify-center text-sm text-gray-600" id="stats">
+          <span>&nbsp;</span>
+        </div>
+        <!-- CTA -->
+        <div class="mt-6">
+          <a href="/directory"
+             class="inline-flex items-center gap-2 bg-[#FED911] hover:bg-[#e6c400] text-[#1E293B] font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-px hover:shadow-lg shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FED911] focus-visible:ring-offset-2">
+            Browse the directory
+            <span class="text-lg leading-none">→</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- WHAT BELONGS IN A /BRAG -->
+    <section class="max-w-5xl mx-auto px-6 mb-10">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto shadow-md">
+        <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">What belongs in a /brag page</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 text-sm text-gray-600">
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Projects</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Presentations</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Open Source</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Blog posts</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Promotions</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Mentoring wins</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Awards</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Personal wins</div>
+          <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Hard problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-9 px-6 text-sm text-gray-500">
+      <div class="inline-block bg-white/80 backdrop-blur-sm rounded-xl px-6 py-3 shadow-sm">
+        <p>
+          Want to add yours?
+          <a href="https://github.com/alexgaudon/slashbrag" class="text-[#1E293B] font-semibold hover:underline">Submit a PR →</a>
+          <span class="mx-2 text-gray-300">|</span>
+          An idea by <a href="https://mostlytechnical.com/" class="text-[#1E293B] font-semibold hover:underline">MostlyTechnical</a>,
+          built by <a href="https://alexgaudon.dev" class="text-[#1E293B] font-semibold hover:underline">Alex Gaudon</a>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script is:inline defer src="/leaflet.js"></script>
+  <script set:html={mapJs}></script>
+</body>
+</html>

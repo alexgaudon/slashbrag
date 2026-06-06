@@ -1,6 +1,6 @@
 # /brag
 
-A community directory of [/brag](https://bragdocs.com) documents. Add yours via PR.
+A directory of [/brag](https://bragdocs.com) docs. Add yours with a PR.
 
 ## How to add your /brag
 
