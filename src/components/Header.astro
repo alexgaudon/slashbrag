@@ -1,22 +1,39 @@
 ---
-import entries from '../../public/data.json' with { type: 'json' };
+import entries from "../../public/data.json" with { type: "json" };
 const dataJson = JSON.stringify(entries);
 ---
 
-<header class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 pb-10 sm:pb-12 relative">
-  <!-- Map strip behind the header content -->
-  <div id="minimap" class="absolute top-0 left-6 right-6 h-64 sm:h-80 rounded-b-2xl overflow-hidden z-0 bg-gray-100" transition:persist></div>
+<header class="relative max-w-5xl mx-auto px-6 pt-12 sm:pt-16 pb-4 sm:pb-6">
+  <!-- Decorative minimap strip -->
+  <div
+    id="minimap"
+    class="absolute top-0 left-6 right-6 h-48 sm:h-74 bg-gray-100 rounded-b-2xl overflow-hidden z-0"
+    transition:persist
+  ></div>
 
-  <!-- Logo box -->
-  <div class="text-center mb-8 relative z-10">
-    <div class="inline-flex flex-col items-center gap-y-4 bg-[#1E293B] rounded-3xl px-8 sm:px-12 py-6 sm:py-8 shadow-xl overflow-visible" transition:persist="logo">
-      <a href="/" class="inline-flex items-center relative no-underline" style="font-family:Arial,Helvetica,sans-serif;font-weight:900;">
-        <div class="absolute left-[12px] sm:left-[14px] -top-[6px] sm:-top-[10px] w-[38px] sm:w-[46px] h-[110px] sm:h-[130px] z-0"
-             style="background:#FED911;transform:skewX(-24deg);"></div>
-        <span class="relative z-[1] text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]" style="text-shadow:0 1px 4px rgba(0,0,0,0.25);">b</span>
+  <!-- Logo and navigation -->
+  <div class="relative z-10 text-center mb-8">
+    <div
+      class="inline-flex flex-col items-center bg-brand-slate rounded-3xl px-8 sm:px-12 py-4 sm:py-6 shadow-xl overflow-visible"
+      transition:persist="logo"
+    >
+      <a
+        href="/"
+        class="inline-flex items-baseline relative no-underline font-extrabold"
+        style="font-family:Arial,Helvetica,sans-serif;"
+        aria-label="Homepage"
+      >
+        <div
+          class="absolute left-[12px] sm:left-[-10px] bottom-[-2px] sm:bottom-[-3px] h-[110px] w-[38px] sm:w-[46px] z-0"
+          style="background:#FED911;transform:skewX(-24deg);transform-origin:bottom left;"
+        ></div>
+        <span
+          class="relative z-1 text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]"
+          style="text-shadow:0 1px 4px rgba(0,0,0,0.25);"
+        >b</span>
         <span class="text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]">rag</span>
       </a>
-      <nav class="flex gap-6 text-base font-medium">
+      <nav class="flex gap-x-6 text-base font-medium pt-8 pb-1" aria-label="Main navigation">
         <a href="/" class="text-[#F8FAFC]/70 hover:text-[#F8FAFC] transition-colors no-underline">About</a>
         <a href="/directory" class="text-[#F8FAFC]/70 hover:text-[#F8FAFC] transition-colors no-underline">Directory</a>
         <a href="/how-to-add-your-page" class="text-[#F8FAFC]/70 hover:text-[#F8FAFC] transition-colors no-underline">Submit</a>
