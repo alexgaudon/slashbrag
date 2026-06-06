@@ -5,7 +5,7 @@ A directory of [/brag](https://bragdocs.com) docs. Add yours with a PR.
 ## How to add your /brag
 
 1. **Fork** this repo
-2. Create a JSON file in `data/entries/` named `yourname.json`:
+2. Create a JSON file in `src/data/entries/` named `yourname.json`:
 
 ```json
 {
@@ -31,4 +31,14 @@ That's it. The site rebuilds automatically when your PR is merged.
 
 ## Tech
 
-Static site deployed on Cloudflare Pages. The build script combines all JSON files in `data/entries/` into `public/data.json` at build time.
+Built with [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com). The build script
+(`scripts/build-data.cjs`) combines all JSON files in `src/data/entries/` into `public/data.json` at build
+time, then Astro generates the static site. Deployed on Cloudflare Pages.
+
+### Local development
+
+```bash
+npm install
+npm run dev        # starts dev server
+npm run build      # production build → dist/
+```
