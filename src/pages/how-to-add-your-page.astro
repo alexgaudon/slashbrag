@@ -23,7 +23,7 @@ import { ClientRouter } from 'astro:transitions';
       <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
         How to add your /brag
       </h1>
-      <p class="mt-2 text-base text-gray-700">It's just a JSON file and a pull request. Takes 2 minutes.</p>
+      <p class="mt-2 text-base text-gray-700">A JSON file, a quick command, and a pull request. You'll be on the map in minutes.</p>
     </div>
   </Header>
 
@@ -64,6 +64,24 @@ import { ClientRouter } from 'astro:transitions';
     <section class="mb-10">
       <div class="flex items-baseline gap-3 mb-3">
         <span class="text-base font-bold text-[#FED911] bg-[#1E293B] rounded-lg px-2 py-0.5">3</span>
+        <h2 class="text-xl font-bold tracking-tight">Add coordinates</h2>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-2">
+        Your entry needs <code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">lat</code> and <code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">lng</code> fields so it shows on the map.
+        Run this from the project root:
+      </p>
+      <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-200/60 mb-3">
+        <pre class="text-base text-gray-800 font-mono leading-relaxed">npm run enrich</pre>
+      </div>
+      <p class="text-gray-700 leading-relaxed">
+        It geocodes your location via OpenStreetMap and writes the coordinates into your JSON file.
+        Already-geocoded locations are cached, so re-running it is instant.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3">
+        <span class="text-base font-bold text-[#FED911] bg-[#1E293B] rounded-lg px-2 py-0.5">4</span>
         <h2 class="text-xl font-bold tracking-tight">Submit a pull request</h2>
       </div>
       <p class="text-gray-700 leading-relaxed">
@@ -85,6 +103,10 @@ import { ClientRouter } from 'astro:transitions';
         <li class="flex gap-2">
           <span class="text-[#FED911] mt-0.5">◆</span>
           <span>Keep the <strong>description</strong> short — a sentence or two. It's your intro.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Run <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">npm run enrich</code> before committing — it adds <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">lat</code>/<code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">lng</code> so your entry shows on the map.</span>
         </li>
         <li class="flex gap-2">
           <span class="text-[#FED911] mt-0.5">◆</span>
