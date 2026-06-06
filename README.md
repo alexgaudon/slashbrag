@@ -5,11 +5,10 @@ A directory of [/brag](https://bragdocs.com) docs. Add yours with a PR.
 ## How to add your /brag
 
 1. **Fork** this repo
-2. Create a JSON file in `src/data/entries/` named `yourname.json`:
+2. Create a JSON file in `data/` named `your-name.json` (kebab-case — the filename becomes your display name):
 
 ```json
 {
-  "name": "Your Name",
   "location": "City, Country",
   "link": "https://yoursite.com/brag",
   "description": "A short 1-2 sentence description about you."
@@ -18,7 +17,7 @@ A directory of [/brag](https://bragdocs.com) docs. Add yours with a PR.
 
 3. Submit a **pull request**
 
-That's it. The site rebuilds automatically when your PR is merged.
+That's it. The site rebuilds automatically when your PR is merged. Your name is derived from the filename (`your-name.json` → "Your Name"). You can also include a `"name"` field to override it.
 
 ## Fields
 
@@ -32,8 +31,8 @@ That's it. The site rebuilds automatically when your PR is merged.
 ## Tech
 
 Built with [Astro](https://astro.build) + [Tailwind CSS v4](https://tailwindcss.com). The build script
-(`scripts/build-data.cjs`) combines all JSON files in `src/data/entries/` into `public/data.json` at build
-time, then Astro generates the static site. Deployed on Cloudflare Pages.
+(`scripts/build-data.cjs`) combines all JSON files in `data/` into `public/data.json` at build
+time (deriving names from filenames), then Astro generates the static site. Deployed on Cloudflare Pages.
 
 ### Local development
 
