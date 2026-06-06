@@ -1,8 +1,35 @@
 ---
 import Header from '../components/Header.astro';
-import directoryJs from '../directory.js?raw';
+import entries from '../../public/data.json' with { type: 'json' };
 import mapJs from '../map.js?raw';
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+
+// compute stats from embedded data
+const US_STATES = new Set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split(" "));
+const CA_PROVINCES = new Set("AB BC MB NB NL NS ON PE QC SK NT NU YT".split(" "));
+function country(loc) {
+  if (!loc) return "Unknown";
+  const parts = loc.split(",");
+  const last = parts[parts.length - 1].trim();
+  if (US_STATES.has(last)) return "United States";
+  if (CA_PROVINCES.has(last)) return "Canada";
+  if (last === "UK" || last === "England" || last === "Scotland" || last === "Wales") return "United Kingdom";
+  if (last === "UAE") return "United Arab Emirates";
+  if (last === "Newfoundland" || last === "Newfoundland and Labrador") return "Canada";
+  return last;
+}
+const countrySet = new Set();
+for (const e of entries) countrySet.add(country(e.location));
+
+// group entries by country
+const groups = {};
+for (const e of entries) {
+  const c = country(e.location);
+  if (!groups[c]) groups[c] = [];
+  groups[c].push(e);
+}
+const sortedCountries = Object.keys(groups).sort();
 ---
 
 <!DOCTYPE html>
@@ -14,6 +41,7 @@ import '../styles/global.css';
   <meta name="description" content="Browse the /brag directory — a collection of personal achievement pages." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
   <link rel="stylesheet" href="/leaflet.css" />
+  <ClientRouter />
 </head>
 <body class="bg-[#fafaf5] text-gray-900 antialiased">
 
@@ -22,25 +50,54 @@ import '../styles/global.css';
       <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
         Directory
       </h1>
-      <p class="mt-1 text-base text-gray-400">Browse everyone's /brag pages</p>
-      <div class="flex gap-6 mt-4 text-base text-gray-700" id="stats"></div>
+      <p class="mt-1 text-base text-gray-500">Browse everyone's /brag pages</p>
+      <div class="flex gap-6 mt-4 text-base text-gray-700">
+        <span><strong>{entries.length}</strong> entries from <strong>{countrySet.size}</strong> countries</span>
+      </div>
     </div>
   </Header>
 
   <main class="max-w-3xl mx-auto px-6 pb-20">
     <div class="relative mb-6">
-      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-base text-gray-400/50 pointer-events-none select-none">⌘</span>
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-base text-gray-500/50 pointer-events-none select-none">⌘</span>
       <input
         type="text"
         id="search"
         placeholder="Search by name or location…"
         autocomplete="off"
-        class="w-full pl-9 pr-4 py-2.5 text-base font-sans rounded-2xl bg-white text-gray-900 outline-none transition-shadow focus:ring-[3px] focus:ring-[#FED911]/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] placeholder:text-gray-400/70"
+        class="w-full pl-9 pr-4 py-2.5 text-base font-sans rounded-2xl bg-white text-gray-900 outline-none transition-shadow focus:ring-[3px] focus:ring-[#FED911]/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] placeholder:text-gray-500/70"
       />
     </div>
 
     <div id="groups">
-      <p class="text-center text-gray-400 py-16">Loading…</p>
+      {sortedCountries.map(c => (
+        <div class="mb-8" data-country={c.toLowerCase()}>
+          <div class="flex justify-between items-baseline border-b border-gray-200/70 pb-2 mb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-500">{c}</span>
+            <span class="text-xs font-medium text-gray-500">{groups[c].length}</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            {groups[c].map(e => (
+              <a class="block bg-white rounded-xl p-5 no-underline text-gray-900 transition-all duration-200 hover:-translate-y-px hover:shadow-md border-l-[3px] border-l-transparent hover:border-l-[#FED911] shadow-sm" href={e.link} target="_blank" rel="noopener"
+                 data-name={(e.name || "").toLowerCase()} data-location={(e.location || "").toLowerCase()}>
+                <div class="flex gap-4">
+                  {e["image-url"] && (
+                    <img src={e["image-url"]} alt="" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" loading="lazy" />
+                  )}
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-baseline gap-2.5 flex-wrap">
+                      <h2 class="text-base font-semibold tracking-tight">{e.name}</h2>
+                      <span class="text-sm font-medium text-gray-500">{e.location || ""}</span>
+                    </div>
+                    <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">{e.description || ""}</p>
+                    <span class="inline-block mt-2 text-sm text-[#FED911] font-semibold opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0">View /brag &#8594;</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </main>
 
@@ -55,7 +112,33 @@ import '../styles/global.css';
   </footer>
 
   <script is:inline defer src="/leaflet.js"></script>
-  <script set:html={directoryJs}></script>
-  <script set:html={mapJs}></script>
+  <script is:inline set:html={mapJs}></script>
+  <script>
+    document.addEventListener('astro:page-load', function () {
+      var search = document.getElementById("search");
+      if (!search) return;
+      search.addEventListener("input", function () {
+        var q = this.value.toLowerCase().trim();
+        var groups = document.querySelectorAll("#groups > [data-country]");
+        for (var i = 0; i < groups.length; i++) {
+          var g = groups[i];
+          var cards = g.querySelectorAll("a[data-name]");
+          var visible = 0;
+          for (var j = 0; j < cards.length; j++) {
+            var c = cards[j];
+            var name = c.getAttribute("data-name") || "";
+            var loc = c.getAttribute("data-location") || "";
+            if (!q || name.indexOf(q) !== -1 || loc.indexOf(q) !== -1) {
+              c.style.display = "";
+              visible++;
+            } else {
+              c.style.display = "none";
+            }
+          }
+          g.style.display = visible ? "" : "none";
+        }
+      });
+    });
+  </script>
 </body>
 </html>

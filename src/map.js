@@ -1,8 +1,11 @@
 // ── map.js — Non-interactive map strip behind the header ─────
-(async function () {
+document.addEventListener('astro:page-load', async function () {
 
 var mapEl = document.getElementById("minimap");
 if (!mapEl) return;
+
+// Don't reinitialize if map already exists (persisted element)
+if (mapEl._leaflet_id) return;
 
 // ── fetch data ──────────────────────────────────────────────
 var entries;
@@ -60,32 +63,4 @@ for (var i = 0; i < entries.length; i++) {
   }
 }
 
-// ── country extraction ──────────────────────────────────────
-var US_STATES = new Set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split(" "));
-var CA_PROVINCES = new Set("AB BC MB NB NL NS ON PE QC SK NT NU YT".split(" "));
-
-function country(loc) {
-  if (!loc) return "Unknown";
-  var parts = loc.split(",");
-  var last = parts[parts.length - 1].trim();
-  if (US_STATES.has(last)) return "United States";
-  if (CA_PROVINCES.has(last)) return "Canada";
-  if (last === "UK" || last === "England" || last === "Scotland" || last === "Wales") return "United Kingdom";
-  if (last === "UAE") return "United Arab Emirates";
-  if (last === "Newfoundland" || last === "Newfoundland and Labrador") return "Canada";
-  return last;
-}
-
-var countrySet = new Set();
-for (var i = 0; i < entries.length; i++) {
-  countrySet.add(country(entries[i].location));
-}
-
-// ── stats ───────────────────────────────────────────────────
-var statsEl = document.getElementById("stats");
-if (statsEl) {
-  statsEl.innerHTML =
-    "<span><strong>" + entries.length + "</strong> entries across <strong>" + countrySet.size + "</strong> countries and counting</span>";
-}
-
-})();
+});

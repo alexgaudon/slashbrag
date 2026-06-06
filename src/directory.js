@@ -1,5 +1,5 @@
 // ── directory.js — Entries list + search (no map) ────────────
-(function () {
+document.addEventListener('astro:page-load', function () {
 
 // ── fetch data ──────────────────────────────────────────────
 var entries;
@@ -8,7 +8,6 @@ try {
 } catch (e) {
   document.getElementById("groups").innerHTML =
     '<p class="text-center text-gray-400 py-16">Couldn\'t load entries.</p>';
-  document.getElementById("stats").innerHTML = "";
   return;
 }
 
@@ -36,11 +35,6 @@ for (var i = 0; i < entries.length; i++) {
   groups[c].push(entries[i]);
 }
 var countries = Object.keys(groups).sort();
-
-// ── stats ──────────────────────────────────────────────────
-document.getElementById("stats").innerHTML =
-  "<span><strong>" + entries.length + "</strong> entries</span>" +
-  "<span><strong>" + countries.length + "</strong> countries</span>";
 
 // ── render ─────────────────────────────────────────────────
 var container = document.getElementById("groups");
@@ -103,4 +97,4 @@ document.getElementById("search").addEventListener("input", function () {
   render(this.value);
 });
 
-})();
+});

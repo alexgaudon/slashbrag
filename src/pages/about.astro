@@ -1,7 +1,26 @@
 ---
 import Header from '../components/Header.astro';
+import entries from '../../public/data.json' with { type: 'json' };
 import mapJs from '../map.js?raw';
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+
+// compute stats from embedded data
+const US_STATES = new Set("AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC".split(" "));
+const CA_PROVINCES = new Set("AB BC MB NB NL NS ON PE QC SK NT NU YT".split(" "));
+function country(loc) {
+  if (!loc) return "Unknown";
+  const parts = loc.split(",");
+  const last = parts[parts.length - 1].trim();
+  if (US_STATES.has(last)) return "United States";
+  if (CA_PROVINCES.has(last)) return "Canada";
+  if (last === "UK" || last === "England" || last === "Scotland" || last === "Wales") return "United Kingdom";
+  if (last === "UAE") return "United Arab Emirates";
+  if (last === "Newfoundland" || last === "Newfoundland and Labrador") return "Canada";
+  return last;
+}
+const countrySet = new Set();
+for (const e of entries) countrySet.add(country(e.location));
 ---
 
 <!DOCTYPE html>
@@ -13,6 +32,7 @@ import '../styles/global.css';
   <meta name="description" content="/brag is a directory of personal achievement pages. Be proud of what you've done." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
   <link rel="stylesheet" href="/leaflet.css" />
+  <ClientRouter />
 </head>
 <body class="bg-[#fafaf5] antialiased">
 
@@ -27,8 +47,8 @@ import '../styles/global.css';
           Just a running list of stuff you're proud of. Projects, talks, bugs you killed,
           promotions, marathons — whatever counts. No rules, no format. Add to it whenever.
         </p>
-        <div class="mt-5 flex gap-6 justify-center text-base text-gray-800" id="stats">
-          <span>&nbsp;</span>
+        <div class="mt-5 flex gap-6 justify-center text-base text-gray-800">
+          <span><strong>{entries.length}</strong> entries across <strong>{countrySet.size}</strong> countries and counting</span>
         </div>
         <div class="mt-6">
           <a href="/"
@@ -43,7 +63,7 @@ import '../styles/global.css';
 
   <section class="max-w-5xl mx-auto px-6 mb-10">
     <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto shadow-md">
-      <h3 class="text-base font-bold uppercase tracking-wider text-gray-400 mb-4">What belongs in a /brag page</h3>
+      <h3 class="text-base font-bold uppercase tracking-wider text-gray-500 mb-4">What belongs in a /brag page</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 text-base text-gray-700">
         <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Projects</div>
         <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Presentations</div>
@@ -69,6 +89,6 @@ import '../styles/global.css';
   </footer>
 
   <script is:inline defer src="/leaflet.js"></script>
-  <script set:html={mapJs}></script>
+  <script is:inline set:html={mapJs}></script>
 </body>
 </html>

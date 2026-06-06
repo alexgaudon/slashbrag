@@ -5,11 +5,11 @@ const dataJson = JSON.stringify(entries);
 
 <header class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 pb-10 sm:pb-12 relative">
   <!-- Map strip behind the header content -->
-  <div id="minimap" class="absolute top-0 left-6 right-6 h-64 sm:h-80 rounded-b-2xl overflow-hidden z-0 bg-gray-100"></div>
+  <div id="minimap" class="absolute top-0 left-6 right-6 h-64 sm:h-80 rounded-b-2xl overflow-hidden z-0 bg-gray-100" transition:persist></div>
 
   <!-- Logo box -->
   <div class="text-center mb-8 relative z-10">
-    <div class="inline-flex flex-col items-center bg-[#1E293B] rounded-3xl px-8 sm:px-12 py-6 sm:py-8 shadow-xl overflow-visible">
+    <div class="inline-flex flex-col items-center bg-[#1E293B] rounded-3xl px-8 sm:px-12 py-6 sm:py-8 shadow-xl overflow-visible" transition:persist="logo">
       <a href="/" class="inline-flex items-center relative no-underline" style="font-family:Arial,Helvetica,sans-serif;font-weight:900;">
         <div class="absolute left-[12px] sm:left-[14px] -top-[6px] sm:-top-[10px] w-[38px] sm:w-[46px] h-[110px] sm:h-[130px] z-0"
              style="background:#FED911;transform:skewX(-24deg);"></div>

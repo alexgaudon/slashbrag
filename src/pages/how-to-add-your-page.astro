@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import mapJs from '../map.js?raw';
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
@@ -13,6 +14,7 @@ import '../styles/global.css';
   <meta name="description" content="Guide for adding your /brag page to the directory." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
   <link rel="stylesheet" href="/leaflet.css" />
+  <ClientRouter />
 </head>
 <body class="bg-[#fafaf5] text-gray-900 antialiased">
 
@@ -49,7 +51,7 @@ import '../styles/global.css';
         (<code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">jane-doe.json</code> → "Jane Doe").
       </p>
       <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-200/60">
-        <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">data/your-name.json</p>
+        <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">data/your-name.json</p>
         <pre class="text-base text-gray-800 font-mono leading-relaxed whitespace-pre-wrap break-words" set:html={`{
   "location": "City, Country",
   "link": "https://yoursite.com/brag",
@@ -70,7 +72,7 @@ import '../styles/global.css';
     </section>
 
     <section class="bg-white rounded-xl p-6 shadow-sm border border-gray-200/60">
-      <h3 class="text-base font-bold uppercase tracking-wider text-gray-400 mb-3">Tips</h3>
+      <h3 class="text-base font-bold uppercase tracking-wider text-gray-500 mb-3">Tips</h3>
       <ul class="space-y-2 text-base text-gray-700">
         <li class="flex gap-2">
           <span class="text-[#FED911] mt-0.5">◆</span>
@@ -107,6 +109,6 @@ import '../styles/global.css';
   </footer>
 
   <script is:inline defer src="/leaflet.js"></script>
-  <script set:html={mapJs}></script>
+  <script is:inline set:html={mapJs}></script>
 </body>
 </html>
