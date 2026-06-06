@@ -37,19 +37,19 @@ for (const e of entries) countrySet.add(country(e.location));
 <body class="bg-[#fafaf5] antialiased">
 
   <Header>
-    <!-- Hero card -->
-    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-md relative z-10">
-      <div class="p-6 sm:p-8 text-center">
-        <p class="text-lg sm:text-xl text-gray-800 leading-relaxed font-medium">
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-md relative z-10 overflow-hidden mb-10">
+      <div class="px-6 sm:px-10 pt-8 sm:pt-10 pb-7 sm:pb-8 text-center">
+        <p class="text-lg sm:text-xl text-gray-900 leading-snug font-semibold tracking-tight">
           Nobody talks about their wins enough. A <strong>/brag</strong> page is where you do exactly that.
         </p>
-        <p class="mt-3 text-base text-gray-700 leading-relaxed">
+        <p class="mt-3 text-sm sm:text-base text-gray-500 leading-relaxed max-w-md mx-auto">
           Just a running list of stuff you're proud of. Projects, talks, bugs you killed,
           promotions, marathons — whatever counts. No rules, no format. Add to it whenever.
         </p>
-        <div class="mt-5 flex gap-6 justify-center text-base text-gray-800">
-          <span><strong>{entries.length}</strong> entries across <strong>{countrySet.size}</strong> countries and counting</span>
-        </div>
+        <p class="mt-5 text-sm text-gray-400">
+          <strong class="font-semibold text-gray-600">{entries.length}</strong> entries across
+          <strong class="font-semibold text-gray-600">{countrySet.size}</strong> countries and counting
+        </p>
         <div class="mt-6">
           <a href="/directory"
              class="inline-flex items-center gap-2 bg-[#FED911] hover:bg-[#e6c400] text-[#1E293B] font-semibold px-6 py-3 rounded-xl transition-all duration-200 hover:-translate-y-px hover:shadow-lg shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FED911] focus-visible:ring-offset-2">
@@ -58,25 +58,17 @@ for (const e of entries) countrySet.add(country(e.location));
           </a>
         </div>
       </div>
-    </div>
-  </Header>
 
-  <section class="max-w-5xl mx-auto px-6 mb-10">
-    <div class="bg-white rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto shadow-md">
-      <h3 class="text-base font-bold uppercase tracking-wider text-gray-500 mb-4">What belongs in a /brag page</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2 text-base text-gray-700">
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Projects</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Presentations</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Open Source</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Blog posts</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Promotions</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Mentoring wins</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Awards</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Personal wins</div>
-        <div class="flex items-center gap-2"><span class="text-[#FED911] text-xs">◆</span> Hard problems</div>
+      <div class="border-t border-gray-100 px-6 sm:px-10 py-5 sm:py-6">
+        <p class="text-xs font-medium uppercase tracking-wider text-gray-400 text-center mb-3">What belongs in a /brag page</p>
+        <div class="flex flex-wrap justify-center gap-2">
+          {["Projects", "Presentations", "Open Source", "Blog posts", "Promotions", "Mentoring wins", "Awards", "Personal wins", "Hard problems"].map(item => (
+            <span class="text-sm text-gray-600 bg-gray-50 rounded-full px-3 py-1">{item}</span>
+          ))}
+        </div>
       </div>
     </div>
-  </section>
+  </Header>
 
   <footer class="text-center py-9 px-6 text-base text-gray-500">
     <p>
