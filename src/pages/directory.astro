@@ -1,5 +1,7 @@
 ---
+import Header from '../components/Header.astro';
 import directoryJs from '../directory.js?raw';
+import mapJs from '../map.js?raw';
 import '../styles/global.css';
 ---
 
@@ -11,31 +13,32 @@ import '../styles/global.css';
   <title>Directory — /brag</title>
   <meta name="description" content="Browse the /brag directory — a collection of personal achievement pages." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
+  <link rel="stylesheet" href="/leaflet.css" />
 </head>
 <body class="bg-[#fafaf5] text-gray-900 antialiased">
 
-  <!-- ═══════════════ HEADER ═══════════════ -->
-  <header class="max-w-3xl mx-auto px-6 pt-10 sm:pt-14 pb-6">
-    <a href="/" class="inline-flex items-center gap-1.5 text-sm text-[#1E293B] font-medium hover:underline transition-colors mb-4">
-      <span>←</span> back
-    </a>
-    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
-      Directory
-    </h1>
-    <p class="mt-1 text-sm text-gray-400">Browse everyone's /brag pages</p>
-    <div class="flex gap-6 mt-4 text-sm text-gray-500" id="stats"></div>
-  </header>
+  <Header>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <a href="/" class="inline-flex items-center gap-1.5 text-base text-[#1E293B] font-medium hover:underline transition-colors mb-4">
+        <span>←</span> back
+      </a>
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+        Directory
+      </h1>
+      <p class="mt-1 text-base text-gray-400">Browse everyone's /brag pages</p>
+      <div class="flex gap-6 mt-4 text-base text-gray-500" id="stats"></div>
+    </div>
+  </Header>
 
-  <!-- ═══════════════ SEARCH + ENTRIES ═══════════════ -->
   <main class="max-w-3xl mx-auto px-6 pb-20">
     <div class="relative mb-6">
-      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm text-gray-400/50 pointer-events-none select-none">⌘</span>
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-base text-gray-400/50 pointer-events-none select-none">⌘</span>
       <input
         type="text"
         id="search"
         placeholder="Search by name or location…"
         autocomplete="off"
-        class="w-full pl-9 pr-4 py-2.5 text-sm font-sans rounded-2xl bg-white text-gray-900 outline-none transition-shadow focus:ring-[3px] focus:ring-[#FED911]/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] placeholder:text-gray-400/70"
+        class="w-full pl-9 pr-4 py-2.5 text-base font-sans rounded-2xl bg-white text-gray-900 outline-none transition-shadow focus:ring-[3px] focus:ring-[#FED911]/50 shadow-[0_1px_3px_rgba(0,0,0,0.04)] placeholder:text-gray-400/70"
       />
     </div>
 
@@ -44,8 +47,7 @@ import '../styles/global.css';
     </div>
   </main>
 
-  <!-- ═══════════════ FOOTER ═══════════════ -->
-  <footer class="text-center py-9 px-6 text-sm text-gray-400">
+  <footer class="text-center py-9 px-6 text-base text-gray-400">
     <p>
       Want to add yours?
       <a href="/how-to-add-your-page" class="text-[#1E293B] font-semibold hover:underline">Submit a PR →</a>
@@ -55,6 +57,8 @@ import '../styles/global.css';
     </p>
   </footer>
 
+  <script is:inline defer src="/leaflet.js"></script>
   <script set:html={directoryJs}></script>
+  <script set:html={mapJs}></script>
 </body>
 </html>

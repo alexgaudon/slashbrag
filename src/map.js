@@ -1,7 +1,7 @@
-// ── map.js — Full-page non-interactive underlay ──────────────
+// ── map.js — Non-interactive map strip behind the header ─────
 (async function () {
 
-var mapEl = document.getElementById("map");
+var mapEl = document.getElementById("minimap");
 if (!mapEl) return;
 
 // ── fetch data ──────────────────────────────────────────────
@@ -10,8 +10,6 @@ try {
   var res = await fetch("/data.json");
   entries = await res.json();
 } catch (e) {
-  mapEl.querySelector("div").innerHTML =
-    '<span class="text-gray-400 text-sm">Couldn\'t load map data.</span>';
   return;
 }
 
@@ -27,15 +25,12 @@ await new Promise(function (resolve) {
 
 if (!window.L) return;
 
-// Clear loading placeholder
-mapEl.innerHTML = "";
-
-// ── init map (non-interactive underlay) ─────────────────────
-var map = L.map("map", {
+// ── init minimap ────────────────────────────────────────────
+var map = L.map("minimap", {
   center: [20, 0],
   zoom: 2,
   minZoom: 2,
-  maxZoom: 10,
+  maxZoom: 2,
   zoomControl: false,
   attributionControl: false,
   dragging: false,
@@ -44,35 +39,25 @@ var map = L.map("map", {
   doubleClickZoom: false,
   boxZoom: false,
   keyboard: false,
-  worldCopyJump: true,
 });
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 18,
+  noWrap: true,
 }).addTo(map);
 
 // ── add markers ─────────────────────────────────────────────
-var bounds = [];
 for (var i = 0; i < entries.length; i++) {
   var e = entries[i];
   if (e.lat && e.lng) {
     L.circleMarker([e.lat, e.lng], {
-      radius: 5,
+      radius: 3.5,
       fillColor: "#FED911",
       color: "#1E293B",
-      weight: 1.5,
+      weight: 1,
       fillOpacity: 0.9,
       interactive: false,
     }).addTo(map);
-    bounds.push([e.lat, e.lng]);
-  }
-}
-
-if (bounds.length > 0) {
-  map.fitBounds(bounds, { padding: [60, 60], maxZoom: 10 });
-  // On portrait screens, zoom in one more level so the map fills height
-  if (window.innerHeight > window.innerWidth) {
-    map.zoomIn();
   }
 }
 
@@ -103,11 +88,5 @@ if (statsEl) {
   statsEl.innerHTML =
     "<span><strong>" + entries.length + "</strong> entries across <strong>" + countrySet.size + "</strong> countries and counting</span>";
 }
-
-// ── resize handling ─────────────────────────────────────────
-setTimeout(function () { map.invalidateSize(); }, 200);
-window.addEventListener("resize", function () {
-  map.invalidateSize();
-});
 
 })();

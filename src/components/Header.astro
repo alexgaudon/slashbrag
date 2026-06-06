@@ -1,0 +1,21 @@
+<header class="max-w-5xl mx-auto px-6 pt-16 sm:pt-24 pb-10 sm:pb-12 relative">
+  <!-- Map strip behind the header content -->
+  <div id="minimap" class="absolute top-0 left-6 right-6 h-64 sm:h-80 rounded-b-2xl overflow-hidden z-0 bg-gray-100"></div>
+
+  <!-- Logo box -->
+  <div class="text-center mb-8 relative z-10">
+    <a href="/" class="inline-block no-underline">
+      <div class="inline-block bg-[#1E293B] rounded-3xl px-8 sm:px-12 py-6 sm:py-8 shadow-xl overflow-visible">
+        <div class="inline-flex items-center relative" style="font-family:Arial,Helvetica,sans-serif;font-weight:900;">
+          <div class="absolute left-[12px] sm:left-[14px] -top-[6px] sm:-top-[10px] w-[38px] sm:w-[46px] h-[110px] sm:h-[130px] z-0"
+               style="background:#FED911;transform:skewX(-24deg);"></div>
+          <span class="relative z-[1] text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]">b</span>
+          <span class="text-[90px] sm:text-[110px] leading-none text-[#F8FAFC]">rag</span>
+        </div>
+        <p class="mt-3 text-base font-medium text-[#F8FAFC]/80">A directory of brag documents</p>
+      </div>
+    </a>
+  </div>
+
+  <slot />
+</header>
