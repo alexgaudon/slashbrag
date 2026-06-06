@@ -1,0 +1,12 @@
+{
+  "location": "Edmonton, Canada",
+  "link": "https://ericturner.dev",
+  "description": "Mobile developer building Android and cross-platform applications. Enjoys experimenting with new frameworks.",
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 53.5462055,
+  "lng": -113.491241,
+  "tags": [
+    "mobile-dev",
+    "android"
+  ]
+}

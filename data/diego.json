@@ -1,0 +1,14 @@
+{
+  "location": "Mexico City, Mexico",
+  "link": "https://diegotech.mx",
+  "description": "Full-stack developer building SaaS platforms and mentoring new engineers.",
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8NGxA1kEbTKATfkcN1YU8hhxZDglSs5knNw&s",
+  "lat": 19.3207722,
+  "lng": -99.1514678,
+  "tags": [
+    "full-stack",
+    "web-dev",
+    "saas",
+    "mentor"
+  ]
+}

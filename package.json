@@ -1,0 +1,26 @@
+{
+  "name": "slashbrag",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/build-data.cjs && astro build",
+    "preview": "astro preview",
+    "enrich": "node scripts/enrich-data.cjs",
+    "deploy": "wrangler pages deploy dist --project-name=slashbrag"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.4",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.98.0"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
+}

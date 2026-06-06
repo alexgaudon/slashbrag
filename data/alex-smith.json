@@ -1,0 +1,14 @@
+{
+  "location": "St. John's, Canada",
+  "link": "https://alexsmith.dev",
+  "description": "Full-stack developer focused on cloud infrastructure and developer tooling. Enjoys building fast, reliable web applications.",
+  "image-url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqCzpntu2CW9O8cGc3J0qPzO3HZd0viLYa6g&s",
+  "lat": 47.5646794,
+  "lng": -52.7066964,
+  "tags": [
+    "full-stack",
+    "cloud",
+    "web-dev",
+    "devtools"
+  ]
+}

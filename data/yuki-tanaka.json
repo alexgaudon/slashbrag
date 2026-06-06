@@ -1,0 +1,15 @@
+{
+  "name": "Yuki Tanaka",
+  "location": "Sydney, Australia",
+  "link": "https://yukitanaka.au/brag",
+  "description": "Platform engineer at a scale-up. Migrated 200 services to Kubernetes without waking anyone up.",
+  "image-url": "https://media.istockphoto.com/id/2218333130/photo/confident-businessman-smiling-in-a-casual-suit-and-glasses-indoors.jpg?s=612x612&w=0&k=20&c=55XTe0b4HfkJfq_yq_ksnl9xYWKRUCgmPMdwcssWOL0=",
+  "lat": -33.8698439,
+  "lng": 151.2082848,
+  "tags": [
+    "platform-engineer",
+    "kubernetes",
+    "devops",
+    "cloud"
+  ]
+}

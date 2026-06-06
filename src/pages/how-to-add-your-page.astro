@@ -1,0 +1,141 @@
+---
+import Header from '../components/Header.astro';
+import mapJs from '../map.js?raw';
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to add your page — /brag</title>
+  <meta name="description" content="Guide for adding your /brag page to the directory." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>" />
+  <link rel="stylesheet" href="/leaflet.css" />
+  <ClientRouter />
+</head>
+<body class="bg-[#fafaf5] text-gray-900 antialiased">
+
+  <Header>
+    <div class="max-w-2xl mx-auto relative z-10">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+        How to add your /brag
+      </h1>
+      <p class="mt-2 text-base text-gray-700">A JSON file, a quick command, and a pull request. You'll be on the map in minutes.</p>
+    </div>
+  </Header>
+
+  <main class="max-w-2xl mx-auto px-6 pb-20">
+
+    <section class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3">
+        <span class="text-base font-bold text-[#FED911] bg-[#1E293B] rounded-lg px-2 py-0.5">1</span>
+        <h2 class="text-xl font-bold tracking-tight">Fork the repo</h2>
+      </div>
+      <p class="text-gray-700 leading-relaxed">
+        Go to <a href="https://github.com/alexgaudon/slashbrag" class="text-[#1E293B] font-semibold hover:underline">github.com/alexgaudon/slashbrag</a>
+        and click the <strong>Fork</strong> button in the top-right. That's your copy now.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3">
+        <span class="text-base font-bold text-[#FED911] bg-[#1E293B] rounded-lg px-2 py-0.5">2</span>
+        <h2 class="text-xl font-bold tracking-tight">Create your entry file</h2>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-3">
+        Add a file to <code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">data/</code> called
+        <strong>your-name.json</strong>. Use kebab-case — the filename is your display name
+        (<code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">jane-doe.json</code> → "Jane Doe").
+      </p>
+      <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-200/60">
+        <p class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">data/your-name.json</p>
+        <pre class="text-base text-gray-800 font-mono leading-relaxed whitespace-pre-wrap break-words" set:html={`{
+  "location": "City, Country",
+  "link": "https://yoursite.com/brag",
+  "description": "A short sentence about you and what you do.",
+  "image-url": "https://example.com/avatar.jpg",  // optional
+  "tags": ["web-dev", "open-source"]               // optional
+}`}></pre>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3">
+        <span class="text-base font-bold text-[#FED911] bg-[#1E293B] rounded-lg px-2 py-0.5">3</span>
+        <h2 class="text-xl font-bold tracking-tight">Add coordinates</h2>
+      </div>
+      <p class="text-gray-700 leading-relaxed mb-2">
+        Your entry needs <code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">lat</code> and <code class="bg-gray-200/70 px-1.5 py-0.5 rounded text-base text-gray-800">lng</code> fields so it shows on the map.
+        Run this from the project root:
+      </p>
+      <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-200/60 mb-3">
+        <pre class="text-base text-gray-800 font-mono leading-relaxed">npm run enrich</pre>
+      </div>
+      <p class="text-gray-700 leading-relaxed">
+        It geocodes your location via OpenStreetMap and writes the coordinates into your JSON file.
+        Already-geocoded locations are cached, so re-running it is instant.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <div class="flex items-baseline gap-3 mb-3">
+        <span class="text-base font-bold text-[#FED911] bg-[#1E293B] rounded-lg px-2 py-0.5">4</span>
+        <h2 class="text-xl font-bold tracking-tight">Submit a pull request</h2>
+      </div>
+      <p class="text-gray-700 leading-relaxed">
+        Commit, push to your fork, and open a pull request. Once it's merged, your page is live in the directory.
+      </p>
+    </section>
+
+    <section class="bg-white rounded-xl p-6 shadow-sm border border-gray-200/60">
+      <h3 class="text-base font-bold uppercase tracking-wider text-gray-500 mb-3">Tips</h3>
+      <ul class="space-y-2 text-base text-gray-700">
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Use <strong>City, Country</strong> format for location — it groups entries on the map and directory.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Make sure your <strong>link</strong> is a live /brag page people can actually visit.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Keep the <strong>description</strong> short — a sentence or two. It's your intro.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Run <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">npm run enrich</code> before committing — it adds <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">lat</code>/<code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">lng</code> so your entry shows on the map.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Optionally include a <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">"tags"</code> array — helps people find your entry when they search.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>If you want a display name different from the filename, add a <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">"name"</code> field.</span>
+        </li>
+        <li class="flex gap-2">
+          <span class="text-[#FED911] mt-0.5">◆</span>
+          <span>Optionally include an <code class="bg-gray-200/70 px-1 py-0.5 rounded text-base">"image-url"</code> — it shows as an avatar next to your entry.</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-9 px-6 text-base text-gray-500">
+    <p>
+      <a href="/directory" class="text-[#1E293B] font-semibold hover:underline">Browse the directory →</a>
+      <span class="mx-2 text-gray-300">|</span>
+      An idea by <a href="https://mostlytechnical.com/" class="text-[#1E293B] font-semibold hover:underline">MostlyTechnical</a>,
+      built by <a href="https://alexgaudon.dev" class="text-[#1E293B] font-semibold hover:underline">Alex</a>
+    </p>
+  </footer>
+
+  <script is:inline defer src="/leaflet.js"></script>
+  <script is:inline set:html={mapJs}></script>
+</body>
+</html>

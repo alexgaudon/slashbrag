@@ -1,0 +1,96 @@
+name: Validate submissions
+
+on:
+  pull_request:
+    paths:
+      - 'data/*.json'
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate data files
+        id: check
+        run: |
+          # Get changed data files vs base branch
+          files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'data/*.json')
+          [ -z "$files" ] && echo "status=none" >> $GITHUB_OUTPUT && exit 0
+
+          ISSUES=""
+          THANKS=""
+          COUNT=0
+
+          for f in $files; do
+            COUNT=$((COUNT + 1))
+            NAME=$(basename "$f" .json | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+            missing=""
+            for field in location link description; do
+              val=$(jq -r ".$field // empty" "$f")
+              [ -z "$val" ] && missing="$missing  - \`$field\`\n"
+            done
+
+            if [ -n "$missing" ]; then
+              ISSUES="${ISSUES}**$NAME** (\`$f\`) is missing:\n$missing\n"
+            else
+              THANKS="${THANKS}  ✓ **$NAME** — looks good\n"
+            fi
+          done
+
+          # Also check for lat/lng (warn, not fail)
+          for f in $files; do
+            lat=$(jq -r '.lat // empty' "$f")
+            [ -z "$lat" ] && ISSUES="${ISSUES}⚠️ One or more entries are missing \`lat\`/\`lng\` — run \`npm run enrich\` before merging.\n"
+            break
+          done
+
+          if [ -z "$ISSUES" ]; then
+            echo "status=ok" >> $GITHUB_OUTPUT
+          else
+            echo "status=issues" >> $GITHUB_OUTPUT
+          fi
+
+          echo "issues<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$ISSUES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          echo "thanks<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$THANKS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Post comment — all good
+        if: steps.check.outputs.status == 'ok'
+        uses: actions/github-script@v7
+        env:
+          THANKS: ${{ steps.check.outputs.thanks }}
+        with:
+          script: |
+            const thanks = process.env.THANKS;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '## ✅ Everything checks out\n\n' + thanks + '\n\nThank you for your submission! 🎉'
+            });
+
+      - name: Post comment — issues found
+        if: steps.check.outputs.status == 'issues'
+        uses: actions/github-script@v7
+        env:
+          ISSUES: ${{ steps.check.outputs.issues }}
+        with:
+          script: |
+            const issues = process.env.ISSUES;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '## ⚠️ Issues found\n\n' + issues + '\n\n### Required fields\n- `location` — City, Country format (e.g. "St. John\'s, Newfoundland")\n- `link` — URL to your /brag page\n- `description` — A short sentence about you\n\nPlease fix these and update your PR.'
+            });

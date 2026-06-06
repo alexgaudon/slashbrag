@@ -1,0 +1,14 @@
+{
+  "name": "Omar Hassan",
+  "location": "Dubai, UAE",
+  "link": "https://omarhassan.ae/brag",
+  "description": "DevOps engineer turned cloud architect. Automates everything. Yes, even that.",
+  "image-url": "https://media.istockphoto.com/id/2218333130/photo/confident-businessman-smiling-in-a-casual-suit-and-glasses-indoors.jpg?s=612x612&w=0&k=20&c=55XTe0b4HfkJfq_yq_ksnl9xYWKRUCgmPMdwcssWOL0=",
+  "lat": 25.0742823,
+  "lng": 55.1885387,
+  "tags": [
+    "devops",
+    "cloud",
+    "automation"
+  ]
+}
