@@ -75,13 +75,20 @@ function render(filter) {
 
     for (var j = 0; j < visible.length; j++) {
       var e = visible[j];
+      var hasImg = e["image-url"];
       html += '<a class="block bg-white rounded-xl p-5 no-underline text-gray-900 transition-all duration-200 hover:-translate-y-px hover:shadow-md border-l-[3px] border-l-transparent hover:border-l-[#FED911] shadow-sm" href="' + e.link + '" target="_blank" rel="noopener">';
+      html += '<div class="flex gap-4">';
+      if (hasImg) {
+        html += '<img src="' + e["image-url"] + '" alt="" class="w-12 h-12 rounded-full flex-shrink-0 object-cover" loading="lazy" />';
+      }
+      html += '<div class="flex-1 min-w-0">';
       html += '<div class="flex items-baseline gap-2.5 flex-wrap">';
       html += '<h2 class="text-base font-semibold tracking-tight">' + e.name + '</h2>';
       html += '<span class="text-sm font-medium text-gray-400">' + (e.location || "") + '</span>';
       html += '</div>';
       html += '<p class="mt-1.5 text-sm text-gray-500 leading-relaxed">' + (e.description || "") + '</p>';
       html += '<span class="inline-block mt-2 text-sm text-[#FED911] font-semibold opacity-0 -translate-x-1 transition-all duration-200">View /brag &#8594;</span>';
+      html += '</div></div>';
       html += '</a>';
     }
 

@@ -23,10 +23,11 @@ That's it. The site rebuilds automatically when your PR is merged. Your name is 
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | ✅ | Your name or handle |
+| `name` | | Your display name (defaults to filename if omitted) |
 | `link` | ✅ | URL to your /brag document |
 | `location` | | Where you're based |
 | `description` | | One-liner about you or your work |
+| `image-url` | | Avatar image shown next to your entry |
 
 ## Tech
 
