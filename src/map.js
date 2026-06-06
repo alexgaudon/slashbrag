@@ -70,6 +70,10 @@ for (var i = 0; i < entries.length; i++) {
 
 if (bounds.length > 0) {
   map.fitBounds(bounds, { padding: [60, 60], maxZoom: 10 });
+  // On portrait screens, zoom in one more level so the map fills height
+  if (window.innerHeight > window.innerWidth) {
+    map.zoomIn();
+  }
 }
 
 // ── country extraction ──────────────────────────────────────
