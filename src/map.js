@@ -35,7 +35,7 @@ var map = L.map("map", {
   center: [20, 0],
   zoom: 2,
   minZoom: 2,
-  maxZoom: 5,
+  maxZoom: 10,
   zoomControl: false,
   attributionControl: false,
   dragging: false,
@@ -69,7 +69,7 @@ for (var i = 0; i < entries.length; i++) {
 }
 
 if (bounds.length > 0) {
-  map.fitBounds(bounds, { padding: [60, 60], maxZoom: 5 });
+  map.fitBounds(bounds, { padding: [60, 60], maxZoom: 10 });
 }
 
 // ── country extraction ──────────────────────────────────────
